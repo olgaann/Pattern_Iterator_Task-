@@ -12,21 +12,19 @@ public class Randoms implements Iterable<Integer> {
         this.max = max;
     }
 
+
     @Override
     public Iterator<Integer> iterator() {
-        return new myIterator();
-    }
-    private class myIterator implements Iterator<Integer> {
+        return new Iterator<Integer>() {
+            @Override
+            public boolean hasNext() {
+                return true;
+            }
 
-
-        @Override
-        public boolean hasNext() {
-            return true;
-        }
-
-        @Override
-        public Integer next() {
-            return random.nextInt(max - min + 1) + min;
-        }
+            @Override
+            public Integer next() {
+                return random.nextInt(max - min + 1) + min;
+            }
+        };
     }
 }
